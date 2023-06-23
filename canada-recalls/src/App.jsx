@@ -37,12 +37,12 @@ const req = () => {
         <button className='primary-button' disabled onClick={req}>Load All Recalls</button> }
         
         {loading == true ? <CircularProgress /> : null}
-        {json == '' ? null : 
+        {json == '' ? null:
         <div className='container recall-container'>
         <div className='row'>
         {json.map((item, key) => {
           console.log(item)
-          
+
           return (
           item.Category.includes('Vehicles') ? <DisplayItem Title={item.Title} NID={item.NID} Issue={item.Issue} updated={item['Last updated']}/> : null
           )
