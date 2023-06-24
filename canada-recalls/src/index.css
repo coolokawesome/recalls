@@ -53,3 +53,7 @@ h3 {
 .bottom-card {
     margin-top: auto;
 }
+.error-code {
+    color: red;
+    font-weight: 800;
+}

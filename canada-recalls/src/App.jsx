@@ -7,6 +7,7 @@ function App() {
   const [json, setJson] = useState('');
   const [loading, setLoading] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [error, setError] = useState(null)
   //handle the loading states
   useEffect(() => {
     isLoaded == true ? setLoading(false) : null
@@ -20,6 +21,7 @@ const req = () => {
         setJson(response.data);
       } catch (error) {
         console.warn('ERROR: ', error);
+        setError(error)
       } finally {
         setIsLoaded(true)
       }
@@ -35,6 +37,9 @@ const req = () => {
         {isLoaded == false ? 
         <button className='primary-button'  onClick={req}>Load All Recalls</button> :
         <button className='primary-button' disabled onClick={req}>Load All Recalls</button> }
+        {
+          error == null ? null : <p className='col-12 error-code'>{error.response.status}  {error.code}</p>
+        }
         
         {loading == true ? <CircularProgress /> : null}
         {json == '' ? null:
