@@ -19,6 +19,7 @@ const req = () => {
       try {
         const response = await axios.get('http://localhost:5173/req');
         setJson(response.data);
+        
       } catch (error) {
         console.warn('ERROR: ', error);
         setError(error)
@@ -38,14 +39,15 @@ const req = () => {
         <button className='primary-button'  onClick={req}>Load All Recalls</button> :
         <button className='primary-button' disabled onClick={req}>Load All Recalls</button> }
         {
-          error == null ? null : <p className='col-12 error-code'>{error.response.status}  {error.code}</p>
+          error == null || error.hasOwnProperty(!error.code) ? null : <p className='col-12 error-code'>{error.response.status}  {error.code}</p>
         }
         
         {loading == true ? <CircularProgress /> : null}
         {json == '' ? null:
         <div className='container recall-container'>
         <div className='row'>
-        {json.map((item, key) => {
+        {
+        json.map((item, key) => {
           console.log(item)
 
           return (

@@ -36,6 +36,12 @@ h3 {
 .display-item-outer {
     border-radius: 10px;
     margin-bottom: 10px;
+    transition-duration: 0.2s;
+}
+.display-item-outer:hover {
+    transition-duration: 0.2s;
+    transform: translateY(-2px);
+    cursor: pointer;
 }
 .display-item-inner {
     background-color: #f0f0f0;
