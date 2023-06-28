@@ -6,7 +6,11 @@ font-family: sans-serif;
 h1 {
 }
 .homepage-header {
-    text-align: center;
+    background-color: rgb(86, 161, 63);
+    text-align: start;
+    color: white;
+    padding-top: 20px;
+
 }
 h3 {
     color: #333333
@@ -21,15 +25,10 @@ h3 {
     justify-content: center;
 }
 .primary-button:hover {
-    transform: translateY(-2px);
     cursor: pointer;
     transition-duration: 0.2s;
 }
-.primary-button:disabled {
-    background-color: white;
-    color: gray;
-    cursor: not-allowed
-}
+
 .primary-button:disabled:hover {
     transform: none;
 }
@@ -45,7 +44,6 @@ h3 {
 }
 .display-item-inner {
     background-color: #f0f0f0;
-    min-height: 25vh;
     border-radius: 10px;
     padding: 3px;
     border: 1.5px solid gray;
@@ -62,4 +60,14 @@ h3 {
 .error-code {
     color: red;
     font-weight: 800;
+}
+.searchrow {
+    margin-bottom: 50px
+}
+.searchtext {
+    font-size: smaller;
+}
+.searchbar {
+    height: 35px;
+    font-size: larger;
 }
