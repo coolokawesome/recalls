@@ -9,7 +9,7 @@ app.get('/req', async (req, res) => {
     const response = await fetch(API_URL);
     const data = await response.json();
     
-    const first100Results = data.slice(0, 100);
+    const first100Results = data.slice(0, 500);
     res.send(first100Results);
   } catch (error) {
     console.error('ERROR: ', error);
@@ -23,7 +23,7 @@ app.get('/req/food/', async (req, res) => {
     const data = await response.json();
 
     const filteredResults = data.filter(item => item.Category.includes("Food"))
-    const slicedResults  = filteredResults.slice(0, 100)
+    const slicedResults  = filteredResults.slice(0, 500)
     res.send(slicedResults )
   }
   catch(error) {
@@ -38,7 +38,7 @@ app.get('/req/vehicles/', async (req, res) => {
     const data = await response.json();
 
     const filteredResults = data.filter(item => item.Category.includes("Vehicles"))
-    const slicedResults  = filteredResults.slice(0, 100)
+    const slicedResults  = filteredResults.slice(0, 500)
     res.send(slicedResults )
   }
   catch(error) {
@@ -53,7 +53,7 @@ app.get('/req/health/', async (req, res) => {
     const data = await response.json();
 
     const filteredResults = data.filter(item => item.Category.includes("Health"))
-    const slicedResults  = filteredResults.slice(0, 100)
+    const slicedResults  = filteredResults.slice(0, 500)
     res.send(slicedResults )
   }
   catch(error) {
@@ -68,7 +68,7 @@ app.get('/req/consumer/', async (req, res) => {
     const data = await response.json();
 
     const filteredResults = data.filter(item => item.Category.includes("Consumer"))
-    const slicedResults  = filteredResults.slice(0, 100)
+    const slicedResults  = filteredResults.slice(0, 500)
     res.send(slicedResults )
   }
   catch(error) {
