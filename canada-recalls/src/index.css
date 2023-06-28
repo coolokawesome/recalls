@@ -1,19 +1,34 @@
 @import url('./assets/bootstrap-grid.min.css');
-
+body {
+    margin: 0px !important
+}
 #root {
 font-family: sans-serif;
+background-color: rgb(255, 249, 248);
+}
+.modal-body, .modal-header {
+    font-family: sans-serif;
 }
 h1 {
+    
 }
 .homepage-header {
-    background-color: rgb(86, 161, 63);
+    background-color: rgb(30, 33, 54);
     text-align: start;
     color: white;
     padding-top: 20px;
+    padding-bottom: 1px
 
+}
+.homepage-header-inner {
+    align-items: center;
+    justify-content: space-between;
 }
 h3 {
     color: #333333
+}
+.search-header {
+    margin-bottom: 60px;
 }
 .primary-button {
     background-color: #e8e6eb;
@@ -37,16 +52,11 @@ h3 {
     margin-bottom: 10px;
     transition-duration: 0.2s;
 }
-.display-item-outer:hover {
-    transition-duration: 0.2s;
-    transform: translateY(-2px);
-    cursor: pointer;
-}
+
 .display-item-inner {
-    background-color: #f0f0f0;
-    border-radius: 10px;
+
     padding: 3px;
-    border: 1.5px solid gray;
+
     display: flex;
     flex-direction: column;
 }
@@ -57,12 +67,15 @@ h3 {
 .bottom-card {
     margin-top: auto;
 }
+.results-container {
+    background-color: white;
+}
 .error-code {
     color: red;
     font-weight: 800;
 }
 .searchrow {
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 .searchtext {
     font-size: smaller;
@@ -70,4 +83,97 @@ h3 {
 .searchbar {
     height: 35px;
     font-size: larger;
+    width: 100%;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 6px;
+    
+}
+.display-item-date {
+    margin-bottom: 10px;
+    color: rgb(162, 162, 162);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.display-item-title {
+    margin-bottom: 10px;
+    margin-top: 5px
+}
+.filter-header {
+    display: inline-block;
+    justify-content: space-between;
+}
+.primary-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.primary-container .primary {
+    color: blue;
+    cursor: pointer;
+
+}
+.filter-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align:center !important;
+    border-bottom:1px solid rgb(200, 200, 200);
+    
+}
+.search-header {
+    border-bottom: 4px solid rgb(216, 61, 30);
+    width: 5rem;
+}
+.radio-container {
+    margin-top: 12px;
+    margin-bottom: 5px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 8px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.filter-option {
+    padding-bottom: 8px
+}
+.filter-option input {
+    margin-left: 0px !important
+}
+.see-more-button {
+    background-color: #d1d1d14f;
+    border: 0px;
+    padding: 5px;
+    color: blue;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+}
+.see-more-button:hover {
+    transform: translateY(-1px);
+    transition-duration: 0.2s;
+}
+.modal-close-button {
+    background-color: #e8e6eb;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 7rem;
+}
+@media screen and (min-width: 1200px) {
+    .modal-footer-row {
+        display: flex;
+    }
+    .modal-close-button {
+        width: 50% !important;
+        margin-left: 25%;
+        justify-content: center !important;
+    }
+    .MuiBox-root {
+        width: 50vw !important
+    }
+}
+.clear-button {
+    
 }
