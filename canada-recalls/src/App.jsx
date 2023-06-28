@@ -9,7 +9,6 @@ import {ModalState, ModalInfo, Json} from './Atoms';
 
 function App() {
   const [json, setJson] = useAtom(Json);
-  const [filter, setFilter] = useState('')
   const [loading, setLoading] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
   const [error, setError] = useState(null)
@@ -44,6 +43,7 @@ const req = (arg) => {
       try {
         const response = await axios.get(`http://localhost:5173/req${arg}`);
         setJson(response.data);
+        setError(null)
       } catch (error) {
         console.warn('ERROR: ', error);
         setError(error)
@@ -55,55 +55,65 @@ const req = (arg) => {
     fetchData();
   };
 
+  const clearReq = () => {
+    req();
+
+  }
+
   return (
-    <div>
+    <>
       <HomepageHeader />
-      <div className='main-container'>
-        <div className='search-container container'>
-          <h1>SEARCH</h1>
-          
-          <div className='row searchrow'>
-            <input className='col-12 col-lg-12 searchbar' placeholder='Search...'></input>
+      <div className='main-container container'>
+        <div className='search-container'>
+          <h1 className='search-header'>SEARCH</h1>
+          <p>Use the form below to filter your search</p>
+          <div className='searchrow'>
+            <input className='searchbar' placeholder='Search...'></input>
             <p className='searchtext'>*Criteria may be case sensitive</p>
           </div>
         </div>
+        <div className='container results-container'>
         <div className='row'>
-          <div className='col-3'>
-            <h3>Filters</h3>
-            <div className='row'>
-              <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/')}></input><label>All Recalls</label></div>
+          <div className='col-12 col-lg-3 '>
+           <div className='primary-container'>
+            <h3 className='filter-header'>FILTERS </h3>
+            <a name='filter' className='primary'  onClick={() => req('/')}> <input type='radio' name='filter' className='primary-button clear-button'></input>All Results</a>
+           </div>
+            <div className='container'>
+            <div className='row '>
                 <div className='col-12 radio-container'>
-                  <label>Food</label>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Food')}></input>All Food</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Fruits and vegetables - Frozen')}></input>Frozen</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Fruits and vegetables')}></input>Fruits/Vegetables</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Candy, confectionary')}></input>Candy/Desserts</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Food - Beverages - Alcoholic')}></input>Alcohol</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Grain')}></input>Grains</div>
+                  <p className='filter-label'>Food</p>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Food')}></input>All Food</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Fruits and vegetables - Frozen')}></input>Frozen</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Fruits and vegetables')}></input>Fruits/Vegetables</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Candy, confectionary')}></input>Candy/Desserts</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Food - Beverages - Alcoholic')}></input>Alcohol</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Grain')}></input>Grains</div>
                 </div>
                 <div className='col-12 radio-container'>
-                  <label>Vehicles</label>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/vehicles')}></input>All Vehicles</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Car')}></input>Cars</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/A.T.V.,')}></input>A.T.V.</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Restricted-Use ')}></input>Off-Road Vehicles</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Motorhome')}></input>Motorhomes</div>
+                  <p className='filter-label'>Vehicles</p>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/vehicles')}></input>All Vehicles</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Car')}></input>Cars</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/A.T.V.,')}></input>A.T.V.</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Restricted-Use ')}></input>Off-Road Vehicles</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Motorhome')}></input>Motorhomes</div>
                 </div>
                 <div className='col-12 radio-container'>
-                  <label>Health</label>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/drug')}></input>Drug/Medication</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/health')}></input>Health/Medical</div>
+                  <p className='filter-label'>Health</p>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/drug')}></input>Drug/Medication</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/health')}></input>Health/Medical</div>
                 </div>
                 <div className='col-12 radio-container'>
-                  <label>Consumer</label>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/consumer')}></input>Consumer Products</div>
-                    <div className='col-12'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Toys ')}></input>Toys</div>
+                  <p className='filter-label'>Consumer</p>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/consumer')}></input>Consumer Products</div>
+                    <div className='col-12 filter-option'><input type='radio' name='filter' className='primary-button'  onClick={() => req('/Toys ')}></input>Toys</div>
                 </div>
+            </div>
             </div>
           </div>
         
           {/** handle any errors**/}
-          {error == null ? null : <p className='col-12 error-code'>{error.response.status}  {error.code}</p>}
+          {error == null ? null : <p className='error-code'>{error.response.status}  {error.code}</p>}
         <div className='col-9'>
         <div className='container recall-container'>
           <div className='row'>
@@ -115,10 +125,12 @@ const req = (arg) => {
                 Title={item.Title} 
                 NID={item.NID} 
                 Issue={item.Issue} 
-                updated={item['Last updated']}/>)})
+                updated={item['Last updated']}
+                Product={item.Product}/>)})
                 }
           </div>
           </div>
+        </div>
         </div>
         </div>
           
@@ -126,7 +138,7 @@ const req = (arg) => {
       </div>
       {loading == true ? <CircularProgress style={{position: 'absolute', bottom: '50%', right: '50%'}}/> : null}
       <ItemModal  />
-  </div>
+  </>
   );
 }
 
