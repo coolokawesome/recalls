@@ -23,15 +23,18 @@ function DisplayItem(props) {
     <div className='col-12 display-item-outer' key={props.NID} id={`item-${props.NID}`}>
         <div className='display-item-inner'>
           <div className='top-card row'>
-            <h3 className='col-12'>{props.Title}</h3>
-            <p className='col-12'>NID# {props.NID}</p>
+            <div className='col-12'>
+            <h5 className='display-item-date'>{props.updated}</h5>
+            <p className=''>#{props.NID}</p>
+            </div>
+            <h3 className='col-12 display-item-title'>{props.Product != "" ? props.Product.slice(0) : props.Title}</h3>
+            
           </div>
           <div className='bottom-card'>
-            <h5>Issue: {props.Issue}</h5>
-            <h5>Last Updated: {props.updated}</h5>
+            <button className='see-more-button' id={props.NID} onClick={handleSeeMore}>See More</button>
           </div>
       </div>
-      <button id={props.NID} onClick={handleSeeMore}>See More</button>
+      
     </div>
       
      
