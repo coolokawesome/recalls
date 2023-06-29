@@ -58,6 +58,9 @@ const req = (arg) => {
   const searchReq = (e) => {
     e.preventDefault()
     const arg = e.target.elements.searchBar.value
+    if(arg == null || arg == '' || arg.replace(/\s/g,'') == '') {
+      return window.alert('please ensure your criteria is not empty and try again.')
+    }
     console.log(arg)
     setLoading(true)
     setJson('')
