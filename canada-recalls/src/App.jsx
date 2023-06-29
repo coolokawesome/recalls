@@ -22,7 +22,7 @@ function App() {
     setJson('')
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/req`);
+        const response = await axios.get(`https://canada-recalls.vercel.app/req`);
         setJson(response.data);
       } catch (error) {
         console.warn('ERROR: ', error);
@@ -41,7 +41,7 @@ const req = (arg) => {
     setJson('')
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/req${arg}`);
+        const response = await axios.get(`https://canada-recalls.vercel.app/req${arg}`);
         setJson(response.data);
         setError(null)
       } catch (error) {
@@ -67,7 +67,7 @@ const req = (arg) => {
  
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5173/search/${arg}`);
+        const response = await axios.get(`https://canada-recalls.vercel.app/search/${arg}`);
         setJson(response.data);
         setError(null)
       } catch (error) {
