@@ -153,6 +153,7 @@ const req = (arg) => {
                 updated={item['Last updated']}
                 Product={item.Product}/>)})
                 }
+                {loading == true ? <CircularProgress style={{position: 'absolute', top: '20%', right: '50%'}}/> : null}
           </div>
           </div>
         </div>
@@ -161,7 +162,7 @@ const req = (arg) => {
           
           
       </div>
-      {loading == true ? <CircularProgress style={{position: 'absolute', bottom: '50%', right: '50%'}}/> : null}
+      
       <ItemModal  />
   </>
   );
