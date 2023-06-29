@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {ModalState, ModalInfo} from './Atoms'
 import { useAtom } from 'jotai';
@@ -67,10 +65,12 @@ function ItemModal(props) {
           <p>{modalInfo.NID}</p>
           </div>
           <div class="col-md-6">
-          <strong>URL:</strong>
+          <strong>Government Statement:</strong>
           <p>
-          <a href="https://recalls-rappels.canada.ca/en/alert-recall/transport-canada-recall-2023344-nissan" target="_blank">
-          https://recalls-rappels.canada.ca/en/alert-recall/transport-canada-recall-2023344-nissan
+          <a href={modalInfo.URL} target="_blank">
+          {
+            modalInfo.URL
+          }
           </a>
           </p>
           </div>
