@@ -55,9 +55,28 @@ const req = (arg) => {
     fetchData();
   };
 
-  const clearReq = () => {
-    req();
-
+  const searchReq = (e) => {
+    e.preventDefault()
+    const arg = e.target.elements.searchBar.value
+    console.log(arg)
+    setLoading(true)
+    setJson('')
+ 
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5173/search/${arg}`);
+        setJson(response.data);
+        setError(null)
+      } catch (error) {
+        console.warn('ERROR: ', error);
+        setError(error)
+      } finally {
+        setLoading(false)
+        setIsLoaded(true)
+      }
+    };
+    fetchData();
+  
   }
 
   return (
@@ -68,7 +87,10 @@ const req = (arg) => {
           <h1 className='search-header'>SEARCH</h1>
           <p>Use the form below to filter your search</p>
           <div className='searchrow'>
-            <input className='searchbar' placeholder='Search...'></input>
+          <form onSubmit={searchReq}>
+            <input className='searchbar' id='searchBar' placeholder='Search...'></input>
+            <button type='submit' className='searchbar-submit' id='searchBarSubmit'>&#128269;</button>
+            </form>
             <p className='searchtext'>*Criteria may be case sensitive</p>
           </div>
         </div>
@@ -117,7 +139,7 @@ const req = (arg) => {
         <div className='col-9'>
         <div className='container recall-container'>
           <div className='row'>
-          {json == '' ? null :
+          {json == '' || undefined ? null : 
             json.map((item, key) => {
               console.log(item, typeof item.NID)
               return (

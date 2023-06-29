@@ -76,6 +76,17 @@ h3 {
 }
 .searchrow {
     margin-bottom: 50px;
+    position: relative;
+}
+.searchbar-submit {
+    position: absolute;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    background-color: rgb(226, 226, 255);
+    border: 1px solid gray;
+    border-radius: 4px
+    
 }
 .searchtext {
     font-size: smaller;

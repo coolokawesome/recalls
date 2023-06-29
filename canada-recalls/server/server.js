@@ -92,6 +92,25 @@ app.get('/req/:category', async (req, res) => {
     res.status(500).send(error);
   }
 });
+app.get('/search/:category', async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+
+    const category = req.params.category;
+    const filteredResults = data.filter(item => {
+     return item.Title.includes(category) && item.Product.includes(category) || item.Title.includes(category) || item.Product.includes(category)
+    });
+    const slicedResults = filteredResults.slice(0, 500);
+
+    res.send(slicedResults);
+  } catch (error) {
+    console.error('ERROR: ' + error);
+    res.status(500).send(error);
+  }
+});
+
 
 
 const port = process.env.PORT || 5173;
