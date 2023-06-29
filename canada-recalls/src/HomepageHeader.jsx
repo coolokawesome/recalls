@@ -7,8 +7,8 @@ function HomepageHeader() {
             <div className='homepage-header-inner container d-flex'>
             <div><h1>Canadian Recalls</h1></div>
             <div>
-              <a>about</a>
-              <a>repo</a>
+              <a> about </a> <a></a>
+              <a> repo </a>
             </div>
             </div>
         </div>
