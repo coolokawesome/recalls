@@ -183,7 +183,8 @@ h3 {
         justify-content: center !important;
     }
     .MuiBox-root {
-        width: 50vw !important
+        width: 50vw !important;
+        overflow-y: scroll !important;
     }
 }
 .clear-button {

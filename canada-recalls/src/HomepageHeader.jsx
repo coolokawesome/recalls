@@ -7,8 +7,10 @@ function HomepageHeader() {
             <div className='homepage-header-inner container d-flex'>
             <div><h1>Canadian Recalls</h1></div>
             <div>
-              <a> about </a> <a></a>
-              <a> repo </a>
+              <a style={{
+                color: 'white',
+                
+              }} target='_blank' href={'https://github.com/coolokawesome/recalls'}> Repo </a>
             </div>
             </div>
         </div>
