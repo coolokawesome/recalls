@@ -38,35 +38,35 @@ function ItemModal(props) {
         <div className='container'>
         <h1 className='modal-header'>{modalInfo != null ? modalInfo.Product : modalInfo.Title.slice(1, -1)}</h1>
         <div className='modal-body row'>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Organization:</strong>
           <p>Transport Canada</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Product:</strong>
           <p>{modalInfo.Product}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Category: </strong>
           <p>{modalInfo.Category}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Issue:</strong>
           <p>{modalInfo.Issue}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Last updated:</strong>
           <p>{modalInfo['Last updated'] != null ? modalInfo['Last updated'] : null}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Recall Class:</strong>
           <p>{modalInfo['Recall class'] == '' ? 'N/A' : modalInfo['Recall class']}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>NID:</strong>
           <p>{modalInfo.NID}</p>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
           <strong>Government Statement:</strong>
           <p>
           <a href={modalInfo.URL} target="_blank">
