@@ -190,3 +190,13 @@ h3 {
 .clear-button {
     
 }
+.home-header,  .home-header-supporting {
+    text-align: start;
+    color: #454545;
+}
+.home-header {
+    font-size: 3.5rem;
+}
+.home-header-supporting {
+    font-size: 2rem;
+}
